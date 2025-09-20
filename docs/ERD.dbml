@@ -1,0 +1,35 @@
+Table customers {
+    id int [pk, increment]
+    name varchar(100)
+    email varchar(100)
+    phone varchar(15)
+}
+
+Table CustomOrders {
+    id int [pk, increment]
+    customer_id int [ref: > customers.id]
+    metal_id int [ref: > metals.id]
+    size_id int [ref: > sizes.id]
+    style_id int [ref: > styles.id]
+    order_date datetime
+}
+
+Table styles {
+    id int [pk, increment]
+    price decimal(10,2)
+    name varchar(50)
+    description varchar(255)
+    image_url varchar(255)
+}
+
+Table sizes {
+    id int [pk, increment]
+    price decimal(10,2)
+    carats decimal(5,2)
+}
+
+Table metals {
+    id int [pk, increment]
+    price decimal(10,2)
+    metal varchar(50)
+}
