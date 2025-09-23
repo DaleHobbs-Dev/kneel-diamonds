@@ -1,6 +1,8 @@
 import { MetalOptions } from './MetalOptions.js'
 import { SizeOptions } from './SizeOptions.js'
 import { StyleOptions } from './StyleOptions.js'
+import { PlaceOrderButton } from './orderButton.js'
+import { renderOrderSummary } from "./OrderSummary.js"
 
 const container = document.querySelector("#container")
 
@@ -8,6 +10,7 @@ const render = async () => {
     const metalOptionsHTML = await MetalOptions()
     const styleOptionsHTML = await StyleOptions()
     const sizeOptionsHTML = await SizeOptions()
+    const placeOrderButtonHTML = await PlaceOrderButton()
 
     const composedHTML = `
            <article class="choices">
@@ -32,6 +35,12 @@ const render = async () => {
                 <section class="order__summary">
                     <!-- summary of selections -->
                 </section>
+                 <section class="order__message">
+        <!-- success/error messages will appear here -->
+    </section>
+                <section class="order__button">
+                    ${placeOrderButtonHTML}
+                </section>
             </article>
 
             <article class="customOrders">
@@ -43,6 +52,8 @@ const render = async () => {
     container.innerHTML = composedHTML
 
     import("./eventHub.js")
+
+    await renderOrderSummary()
 }
 
 render()

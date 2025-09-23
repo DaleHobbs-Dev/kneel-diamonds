@@ -95,7 +95,7 @@ main {
 
 /* --- Order summary --- */
 .order {
-  padding: 1rem;
+  padding: 1.5rem;
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
@@ -105,10 +105,89 @@ main {
 
 .order h2 {
   margin-top: 0;
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1.4rem;
+  color: #b8860b; /* gold accent */
   border-bottom: 2px solid #eee;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* --- Order Summary --- */
+.order__summary {
+  background: #fafafa;
+  border: 1px solid #e6e6e6;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #333;
+}
+
+.order__summary ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.order__summary li {
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.order__summary li:last-child {
+  border-bottom: none;
+}
+
+/* --- Order Messages --- */
+.order__message {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: bold;
+  display: none; /* hidden by default */
+}
+
+.order__message--success {
+  display: block;
+  background-color: #e6f4ea;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+}
+
+.order__message--error {
+  display: block;
+  background-color: #fbeaea;
+  color: #c62828;
+  border: 1px solid #f5c2c2;
+}
+
+/* --- Place Order Button --- */
+.order__button {
+  text-align: right; /* align button to the right */
+}
+
+.order__button button {
+  background: #b8860b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order__button button:hover {
+  background: #a67c00;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.order__button button:active {
+  background: #8b6500;
 }
 
 /* --- Custom orders list --- */
