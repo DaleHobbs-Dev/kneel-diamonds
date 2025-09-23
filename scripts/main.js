@@ -41,6 +41,8 @@ const render = async () => {
     `
 
     container.innerHTML = composedHTML
+
+    import("./eventHub.js")
 }
 
 render()
