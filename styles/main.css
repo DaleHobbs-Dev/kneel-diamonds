@@ -191,8 +191,9 @@ main {
 }
 
 /* --- Custom orders list --- */
+/* --- Custom Orders Section --- */
 .customOrders {
-  padding: 1rem;
+  padding: 1.5rem;
   background: #fff;
   border: 1px solid #e6e6e6;
   border-radius: 8px;
@@ -201,12 +202,91 @@ main {
 
 .customOrders h2 {
   margin-top: 0;
-  font-size: 1.2rem;
-  color: #444;
+  font-size: 1.3rem;
+  color: #b8860b;
   border-bottom: 2px solid #eee;
-  padding-bottom: 0.3rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 
+.customOrder {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+  line-height: 1.6;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.customOrder:hover {
+  background-color: #fafafa;
+  transform: translateX(4px);
+}
+
+.customOrder:last-child {
+  border-bottom: none;
+}
+
+.customOrder__id {
+  font-weight: bold;
+  color: #444;
+  margin-right: 0.25rem;
+}
+
+/* --- Metal Colors --- */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* --- Metal Colors --- */
+.customOrder[data-metal="Platinum"] .customOrder__metal {
+  color: #6e6e6e; /* sleek gray-silver */
+  font-weight: bold;
+}
+
+.customOrder[data-metal="Sterling Silver"] .customOrder__metal {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.customOrder[data-metal="14K Gold"] .customOrder__metal {
+  font-weight: bold;
+  background: linear-gradient(45deg, #d4af37, #f5e79e);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 3px rgba(212, 175, 55, 0.4);
+}
+
+.customOrder[data-metal="24K Gold"] .customOrder__metal {
+  font-weight: bold;
+  background: linear-gradient(45deg, #b8860b, #ffcc33, #b8860b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 4px rgba(184, 134, 11, 0.6); /* softer glow */
+}
+
+.customOrder[data-metal="Palladium"] .customOrder__metal {
+  color: #9fa9b3; /* bluish-silver */
+  font-weight: bold;
+}
+
+/* --- Price in green --- */
+.customOrder__price {
+  font-weight: bold;
+  color: #2e7d32; /* rich green */
+}
+
+.customOrder__size {
+  color: #555;
+}
+
+.customOrder__style {
+  color: #666;
+}
+
+/* --- Footer styles --- */
 footer {
   text-align: center;
   padding: 1rem;

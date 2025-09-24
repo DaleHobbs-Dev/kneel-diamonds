@@ -19,51 +19,45 @@ export const resetTransientState = () => {
 }
 
 export const setStyleChoice = (chosenStyle) => {
-    transientState.styleId = chosenStyle
+    transientState.styleId = parseInt(chosenStyle)
     console.log("transientState", transientState)
 }
 
 export const setSizeChoice = (chosenSize) => {
-    transientState.sizeId = chosenSize
+    transientState.sizeId = parseInt(chosenSize)
     console.log("transientState", transientState)
 }
 
 export const setMetalChoice = (chosenMetal) => {
-    transientState.metalId = chosenMetal
+    transientState.metalId = parseInt(chosenMetal)
     console.log("transientState", transientState)
 }
 
 export const placeOrder = async () => {
-
     const { styleId, sizeId, metalId } = transientState
 
-    // Check for incomplete input
+    // validate selection
     const orderValid = isValidId(styleId) && isValidId(sizeId) && isValidId(metalId)
-
     if (!orderValid) {
         return { success: false, message: "Invalid order: missing choices" }
     }
 
-    console.log("Saving survey to database ...\n", transientState)
-
-    // Prepare the POST request options
     try {
         const postOrder = {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(transientState)
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ styleId, sizeId, metalId }) // no id here
         }
 
         const response = await fetch("http://localhost:8088/orders", postOrder)
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`)
-        }
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
         const newSubmission = await response.json()
 
-        // Reset the Transient State after submission
+        // let the app know state changed
+        const customEvent = new CustomEvent("newOrderPlaced")
+        document.dispatchEvent(customEvent)
+
         resetTransientState()
 
         return { success: true, data: newSubmission }

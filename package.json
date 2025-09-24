@@ -7,7 +7,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "json-server -p 8088 -w api/database.json"
+    "api": "npx -y json-server -p 8088 -w api/database.json"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,6 @@
   "homepage": "https://github.com/DaleHobbs-Dev/kneel-diamonds#readme",
   "description": "",
   "devDependencies": {
-    "json-server": "^1.0.0-beta.3"
+    "json-server": "^0.17.4"
   }
 }
